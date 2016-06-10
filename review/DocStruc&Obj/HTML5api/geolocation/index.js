@@ -7,7 +7,7 @@ function showLocation(lat, lon, date) {
   document.getElementById('lon').innerHTML = `Lon: ${lon}`;
 
   var ret = new Date(date).toLocaleString();
-  document.getElementById('date').innerHTML = `Date: ${ret}`;
+  $('#date').text(`Data: ${ret}`);
 }
 
 if(geoSupport()) {
