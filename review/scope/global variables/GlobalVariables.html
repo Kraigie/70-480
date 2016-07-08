@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Global Variables</title>
+    <script>
+      // Global Variable set outside function
+      var myvar = "Global variable set outside the function";
+      function OutsideFunction(){
+       alert(myvar); // 5
+      }
+
+      // global variable attached to window object
+      function setValue()
+      {
+          window.myValue = "Global variable manually attached to a window object";
+      }
+
+      function getValue()
+      {
+          setValue();
+          alert(window.myValue); // "test" (assuming setValue has run)
+      }
+
+      // When a global variable is set, it is automatically attached to window object
+      var myValue2;
+      function setValue2()
+      {
+          myValue2 = "Global variable automatically set from window object.";
+      }
+
+      function getValue2()
+      {
+          setValue2();
+          alert(window.myValue2); // yup, it's "test"
+      }
+    </script>
+</head>
+<body>
+  <section>
+    <h1>Global Variables</h1>
+    <h3>Outside Function</h3>
+    <button onclick="OutsideFunction()">Click</button>
+  </section>
+  <section>
+    <h3>Value manually attached to Window Object</h3>
+    <button onclick="getValue()">Click</button>
+  </section>
+  <section>
+    <h3>Value automatically attached to Window Object</h3>
+    <button onclick="getValue2()">Click</button>
+  </section>
+</body>
+</html>
