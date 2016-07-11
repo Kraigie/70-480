@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<meta name="KEYWORDS" content="javascript,event bubbling,event capturing,event handler,event handling,event propagation,capturing,event bubbling demo">
+<title>JavaScript Event Bubbling and Event Propagation</title>
+
+<script type="text/javascript" language=JavaScript><!--
+var sEventType = 'click'
+var sMsg1 = 'Now handling the '+sEventType+' event '
+var sMsg2 = '\n\nTo continue, click OK or press Enter or Esc'
+var sTableMarkup = ''
+ +'<TABLE id=tb1 onclick="handleTABLE(event,this.id)" border=2 cellspacing=2 cellpadding=2>'
+ +'<TR id=trh > <th id=th1 >Year</th> <th id=th2 >Roman Numeral</th><th id=th3 >In plain English this means...</th></tr>'
+ +'<TR id=tr1 onclick="handleTR(event,this.id)"> <TD id=td11 onclick="handleTD(event)">1800</TD> <TD id=td12 onclick="handleTD(event)">MDCCC</TD> <TD id=td13 onclick="handleTD(event)">The year eighteen hundred</TD> </TR>'
+ +'<TR id=tr2 onclick="handleTR(event,this.id)"> <TD id=td21 onclick="handleTD(event)">1900</TD> <TD id=td22 onclick="handleTD(event)">MCM  </TD> <TD id=td23 onclick="handleTD(event)">The year nineteen hundred</TD> </TR>'
+ +'<TR id=tr3 onclick="handleTR(event,this.id)"> <TD id=td31 onclick="handleTD(event)">2000</TD> <TD id=td32 onclick="handleTD(event)">MM   </TD> <TD id=td33 onclick="handleTD(event)">The year two thousand</TD>     </TR>'
+ +'</TABLE>'
+
+function handleBODY(e) {
+ var elem, evt = e ? e:event;
+ if (evt.srcElement)  elem = evt.srcElement;
+ else if (evt.target) elem = evt.target;
+ if (elem.tagName.toLowerCase()=='a') return true;
+
+ alert (sMsg1+'WAY UP THERE, at the BODY level!'+sMsg2);
+ self.document.bgColor="#EEEEFF";
+}
+
+function handleTABLE(e,id){
+ alert (sMsg1+'at the TABLE level...'+sMsg2);
+ document.getElementById(id).style.backgroundColor = "#BBBBDD";
+}
+
+function handleTR(e,id){
+ alert (sMsg1+'at the TABLE ROW level...'+sMsg2);
+ document.getElementById(id).style.backgroundColor = "#7777AA";
+}
+
+function handleTD(e){
+ var elem, evt = e ? e:window.event;
+ alert (sMsg1+'at the TABLE CELL level...'+sMsg2);
+ if (evt.srcElement)  elem = evt.srcElement;
+ else if (evt.target) elem = evt.target;
+ if (elem.style) { elem.style.color='white'; elem.style.backgroundColor='#000099'; }
+}
+
+function resetTable() {
+ self.document.bgColor = "#FFFFFF";
+ document.getElementById('tablespan').innerHTML=sTableMarkup;
+}
+
+function cancelBubble(e) {
+ var evt = e ? e:window.event;
+ if (evt.stopPropagation)    evt.stopPropagation();
+ if (evt.cancelBubble!=null) evt.cancelBubble = true;
+}
+
+function resetCancelBubble(e) {
+ resetTable();
+ cancelBubble(e);
+}
+
+</script>
+</HEAD>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#660099"
+  onclick="handleBODY()"
+>
+<a name="top"></a>
+<p>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td width=568 valign=top>
+
+<h3><font face="Verdana,Arial,Helvetica,sans-serif" color="#000099">
+Event Bubbling and Event Propagation: Demo
+</font></h3>
+
+
+<p>
+<b>Question:</b> What is <i>event bubbling</i>?
+
+<p>
+<b>Answer:</b>
+The concept of <b><i>event bubbling</i></b> was introduced to deal with situations
+where a single event, such as a mouse click, may be handled by two or more
+event handlers defined <nobr>at different</nobr> levels of the <i>Document Object Model</i> (DOM) hierarchy.
+
+If this is the case, the event bubbling process starts by executing the event handler
+defined for individual elements at the lowest level
+(e.g. individual hyperlinks, buttons, table cells etc.).
+From there, the event <i>bubbles up</i> to the containing elements
+(e.g. a table or a form with its own event handler),
+then up to even higher-level elements (e.g. the <code>BODY</code> element of the page).
+Finally, the event ends up being handled at the highest level in the DOM hierarchy,
+the <code>document</code> element itself (provided that your <code>document</code> has its own event handler).
+
+<p>
+The term <b><i>event propagation</i></b> is often used as a synonym of <i>event bubbling</i>.
+However, strictly speaking, event propagation is a wider term:
+it includes not only event bubbling but also event capturing.
+<b><i>Event capturing</i></b> is the opposite of bubbling (events are handled
+at higher levels first, then <i>sink</i> down to individual elements at lower levels).
+Event capturing is supported in fewer browsers and rarely used; notably,
+Internet Explorer prior to version 9.0 does not support event capturing.
+
+
+<p><a name="demo"></a>
+<b><i>Demo: click any cell in the table and watch the</i> <code>click</code> <i>event bubbling!</i></b>
+
+<span id=tablespan></span>
+<script language=JavaScript>
+resetTable();
+</script>
+
+<form>
+<input id=btn1 type=button onclick="resetTable()" value="Reset">
+<!--
+<input id=btn2 type=button onclick="resetTable();cancelBubble(event)"
+       value="Reset and cancel event bubbling for this button">
+-->
+
+[For a <i>full</i> reset,
+<a target=_self
+   href="eventbubbling.htm"
+   onclick="cancelBubble(event);
+            self.location.replace('eventbubbling.htm');
+            return false;"
+>reload the page</a>]
+</form>
+
+</td>
+
+
+<td valign=top>
+
+
+</td>
+</tr>
+
+<tr><td colspan=2 valign=top width=728>
+
+In this demo, <code>onclick</code> event handlers change the background color of their respective elements.
+The event handlers are defined at four levels:
+<br>(1) the document body <code>&lt;BODY onclick="handleBODY()" ...&gt;</code>
+<br>(2) the table element: <code>&lt;TABLE id=tb1 onclick="handleTABLE(event,this.id)" ...&gt;</code>
+<br>(3) table row elements: <code>&lt;TR id=tr1 onclick="handleTR(event,this.id)"&gt;</code>
+<br>(4) individual table cells: <code>&lt;TD id=td11 onclick="handleTD(event,this.id)"&gt;</code>
+
+<br>
+When you click inside table cells, event handlers at the lowest level (4) are triggered first,
+followed by event handlers at higher levels (3), (2), (1), in this order.
+Each event handler displays an <a onclick="cancelBubble(event);" href="alert.htm">alert message box</a>
+telling you the level at which the <code>click</code> event is currently handled.
+The execution is paused until you dismiss the alert box.
+
+<p>
+If you try to reset the demo by clicking the <b>Reset</b> button,
+the button's event handler function <code>resetTable()</code> works as expected
+(the background colors are reverted to white for the table and the entire page body).
+However, due to event bubbling, a higher-level event handler function <code>handleBody()</code>
+is triggered too <code>-</code> which colorizes the entire page once again!
+To avoid unintended consequences like this, you can
+<a onclick="cancelBubble(event);" href="canceleventbubbling.htm">cancel event bubbling</a>.
+</td></tr>
+
+
+</table>
+
+</BODY>
+</HTML>

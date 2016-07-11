@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>OnClick</title>
+    <style>
+      section {
+        display: block;
+      }
+    </style>
+
+</head>
+<body>
+  <section>
+    <h1>OnClick Example</h1>
+    <p>Attach to a button - HTML</p>
+    <button onclick="myOnClickFunction()">Click me</button>
+    <p id="demo"></p>
+
+    <hr/>
+
+    <p>In HTML</p>
+    <p id="pdemo" onclick="myPFunction()">Click me.</p>
+
+    <hr />
+    <p>In JavaScript</p>
+    <p id="xdemo">Click me.</p>
+
+    <hr />
+    <p>In JavaScript using an AddEvent Listener</p>
+    <p id="ldemo">Click me.</p>
+
+    <hr/>
+    Field1: <input type="text" id="field1" value="Hello World!"><br>
+    Field2: <input type="text" id="field2"><br><br>`
+    <button onclick="myCopyFunction()">Copy Text</button>
+    <p>A function is triggered when the button is clicked. The function copies the text from Field1 into Field2.</p>
+
+  </section>
+
+  <script>
+    function myOnClickFunction() {
+      document.getElementById("demo").innerHTML = "Hello World";
+    }
+
+    function myPFunction() {
+        document.getElementById("pdemo").innerHTML = "YOU CLICKED ME!";
+    }
+
+    document.getElementById("xdemo").onclick = function() {myFunction()};
+
+    function myFunction(){
+        document.getElementById("xdemo").innerHTML = "YOU CLICKED ME!";
+    }
+
+    document.getElementById("ldemo").addEventListener("click", myListenerFunction);
+
+    function myListenerFunction() {
+        document.getElementById("ldemo").innerHTML = "YOU CLICKED ME!";
+    }
+
+    window.onclick = myWindowFunction;
+
+    function myWindowFunction() {
+        document.getElementsByTagName("BODY")[0].style.backgroundColor = "yellow";
+    }
+
+    function myCopyFunction() {
+        document.getElementById("field2").value = document.getElementById("field1").value;
+    }
+
+  </script>
+</body>
+</html>
