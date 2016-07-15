@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship>
+    <supervisor>
+        <firstName>Craig</firstName>
+        <lastname>Dazey</lastName>
+    </supervisor>
+    <yearsManaged>10</yearsManaged>
+    <team>
+        <person>
+            <firstName>John</firstName>
+            <lastName>Doe</lastName>
+        </person>
+        <person>
+            <firstName>Anna</firstName>
+            <lastName>Smith</lastName>
+        </person>
+        <person>
+            <firstName>Peter</firstName>
+            <lastName>Jones</lastName>
+        </person>
+    </team>
+</relationship>

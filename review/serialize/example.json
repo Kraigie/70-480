@@ -1,0 +1,21 @@
+{
+    "supervisor": {
+        "first": "Tom",
+        "last": "Holland"
+    },
+    "yearsManaged": 10,
+    "team": [
+        {
+            "firstName": "John",
+            "lastName": "doe"
+        },
+        {
+            "firstName":"Anna",
+            "lastName":"Smith"
+        },
+        {
+            "firstName":"Peter",
+            "lastName":"Jones"
+        }
+    ]
+}
