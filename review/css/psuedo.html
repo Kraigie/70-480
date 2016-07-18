@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+    div > p:first-child { color: red; }
+
+    a:link    { color: red }    /* unvisited links */
+    a:visited { color: blue }   /* visited links   */
+    a:hover   { color: yellow } /* user hovers     */
+    a:active  { color: lime }   /* active links    */
+
+    #test:first-line { color: red }
+
+    #test2 { line-height: 1.1 }
+    #test2:first-letter { font-size: 3em; font-weight: normal }
+    span { font-weight: bold }
+
+    p.note:before {
+        content: "Note: ";
+    }
+
+</style>
+</head>
+<body>
+    Pseudo Classes
+    <p> The last P before the note. </p>
+    <div class="note">
+        <p> The first P inside the note. </p>
+        <p> The second P inside the note. </p>
+    </div>
+
+    <a class="external" href="http://google.com/">external link</a>
+
+
+
+    <br />
+    <br />
+    Psuedo Elements
+    <p id='test'>This is a somewhat long HTML
+paragraph that will be broken into several
+lines. The first line will be identified
+by a fictional tag sequence. The other lines
+will be treated as ordinary lines in the
+paragraph.This is a somewhat long HTML
+paragraph that will be broken into several
+lines. The first line will be identified
+by a fictional tag sequence. The other lines
+will be treated as ordinary lines in the
+paragraph.This is a somewhat long HTML
+paragraph that will be broken into several
+lines. The first line will be identified
+by a fictional tag sequence. The other lines
+will be treated as ordinary lines in the
+paragraph.This is a somewhat long HTML
+paragraph that will be broken into several
+lines. The first line will be identified
+by a fictional tag sequence. The other lines
+will be treated as ordinary lines in the
+paragraph.</p>
+
+
+<p id='test2'><span>Het hemelsche</span> gerecht heeft zich ten lange lesten<br>
+Erbarremt over my en mijn benaeuwde vesten<br>
+En arme burgery, en op mijn volcx gebed<br>
+En dagelix geschrey de bange stad ontzet.
+</p>
+
+
+<p class='note'>
+    Laundry
+</p>
+<p class='note'>
+    Dishes
+</p>
+<p>
+    Wash Car
+</p>
+
+</body>
+</html>

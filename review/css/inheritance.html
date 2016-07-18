@@ -1,0 +1,62 @@
+<html>
+<head>
+<style>
+@import "test.css";
+
+.blue {
+    color:red;
+}
+
+body { font-size: 10pt }
+h2 { font-size: 120% }
+
+h2 em {
+    font-size: 120%;
+}
+
+/*body {
+color: black !important;
+background: white !important;
+}
+
+* {
+color: inherit !important;
+background: transparent !important;
+}*/
+</style>
+</head>
+
+<body>
+    <h1>The headline <em>is</em> important!</h1>
+    <h1>The headline <em class='blue'>is</em> important!</h1>
+
+    <br />
+    Normal Font
+    <h2>A <em>large</em> heading</h2>
+
+    <br />
+    <p id='ptest'>
+        tester
+    </p>
+
+
+
+
+    The first rule in the user's style sheet in the following example contains an "!important" declaration,
+    which overrides the corresponding declaration in the author's style sheet. The second declaration will
+    also win due to being marked "!important". However, the third rule in the user's style sheet is not "!important"
+    and will therefore lose to the second rule in the author's style sheet (which happens to set style on a
+    shorthand property). Also, the third author rule will lose to the second author rule since the second
+    rule is "!important". This shows that "!important" declarations have a function also within author style sheets.
+
+    /* From the user's style sheet */
+    p { text-indent: 1em ! important }
+    p { font-style: italic ! important }
+    p { font-size: 18pt }
+
+    /* From the author's style sheet */
+    p { text-indent: 1.5em !important }
+    p { font: normal 12pt sans-serif !important }
+    p { font-size: 24pt }
+</body>
+</html>
