@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Action and Method</title>
+    <style>
+      section {
+        display: block;
+      }
+    </style>
+    <script></script>
+</head>
+  <body>
+    <section>
+      <h1>The Action Attribute</h1>
+      <p>
+      The action attribute defines the action to be performed when the form is submitted.<br/>
+
+      The common way to submit a form to a server, is by using a submit button.<br/>
+
+      Normally, the form is submitted to a web page on a web server.<br/>
+
+      In the example above, a server-side script is specified to handle the submitted form:</p>
+
+
+      <form action="action_page.php">
+
+
+      <p>If the action attribute is omitted, the action is set to the current page.</p>
+
+
+      <h1>The Method Attribute</h1>
+
+      <p>The method attribute specifies the HTTP method (GET or  POST) to be used when submitting the forms:</p>
+
+
+      <form action="action_page.php" method="get"><br/>
+
+      or:<br/>
+
+
+      <form action="action_page.php" method="post"><br/>
+
+
+      <h2>When to Use GET?</h2>
+
+      <p>You can use GET (the default method):<br/>
+
+      If the form submission is passive (like a search engine query), and without sensitive information.<br/>
+
+      When you use GET, the form data will be visible in the page address:<br/>
+
+
+      action_page.php?firstname=Mickey&lastname=Mouse<br/>
+
+
+
+
+      Note<br/>
+      GET is best suited to short amounts of data. Size limitations are set in your browser.</p>
+
+
+
+      <h2>When to Use POST?</h2>
+
+      <p>You should use POST:<br/>
+
+      If the form is updating data, or includes sensitive information (password).<br/>
+
+      POST offers better security because the submitted data is not visible in the page address.</p>
+
+    </section>
+  </body>
+</html>
