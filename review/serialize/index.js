@@ -11,7 +11,7 @@ function mySubmit() {
     console.log($(this).serialize());
 
     //form.onsubmit not called when form is submitted via code
-    //document.getElementById("form").submit();
+    document.getElementById("form").submit();
 }
 
 $( "form" ).on( "submit", function( event ) {
