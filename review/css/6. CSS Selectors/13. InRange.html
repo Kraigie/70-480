@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input:in-range {
+    border: 2px solid green;
+}
+input:out-of-range {
+    border: 2px solid red;
+}
+</style>
+</head>
+<body>
+
+<h1>input:in-range</h1>
+<h3>any input that is in a certain range (5-10)</h3>
+<input type="number" min="5" max="10" value="7">
+
+<p>Try typing a number out of range (less than 5 or higher than 10), to see the styling disappear.</p>
+
+<p><strong>Note</strong>: The :in-range selector is not supported in Internet Explorer.</p>
+
+<h1>input:out-of-range</h1>
+<h3>any input that is outside a certain range (5-10)</h3>
+
+<input type="number" min="5" max="10" value="17">
+
+<p>Try typing a number within the given range (between 5 and 10), to see the styling disappear.</p>
+
+<p><strong>Note</strong>: The :out-of-range selector is not supported in Internet Explorer.</p>
+
+
+</body>
+</html>

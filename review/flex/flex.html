@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row; /*row reverse, column, column-reverse*/
+    justify-content: space-between;; /*flex-start, flex-end, space-between, space-around*/
+    align-items: flex-start; /*vertically align - stretch, flex-start, flex-end, center, baseline */
+    /*Many other properties: http://www.w3schools.com/css/css3_flexbox.asp*/
+    width: 400px;
+    height: 250px;
+    background-color: lightgrey;
+}
+
+.flex-item {
+    background-color: cornflowerblue;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="flex-container">
+  <div class="flex-item">flex item 1</div>
+  <div class="flex-item">flex item 2</div>
+  <div class="flex-item">flex item 3</div>
+  <div class="flex-item">flex item 4</div>
+</div>
+
+</body>
+</html>

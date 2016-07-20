@@ -9,7 +9,7 @@ socket.onerror = function(err) {
 };
 
 socket.onmessage = function(event) {
-    //console.log('Received: ' + JSON.stringify(event.data));
+    console.log('Received: ' + event.data);
 }
 
 socket.onclose = function(event) {
