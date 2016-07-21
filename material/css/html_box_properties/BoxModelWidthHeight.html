@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+
+<h1>Calculate the total width:</h1>
+
+<img src="../../../Resources/klematis4_big.jpg" width="350" height="263" alt="Klematis">
+<div>The picture above is 350px wide. The total width of this element is also 350px.</div>
+<p>
+  Here is the math:<br /><br />
+
+
+320px (width)<br />
+ + 20px (left + right padding)<br />
+ + 10px (left + right border)<br />
+ + 0px (left + right margin)<br />
+= 350px  <br /><br />
+
+The total width of an element should be calculated like this:<br />
+
+Total element width = width + left padding + right padding + left border + right border + left margin + right margin<br />
+
+The total height of an element should be calculated like this:<br />
+
+Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin<br />
+
+Note for old IE: Internet Explorer 8 and earlier versions, include padding and border in the width property. To fix this problem, add a <!DOCTYPE html> to the HTML page.
+
+</p>
+</body>
+</html>
